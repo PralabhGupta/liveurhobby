@@ -1,0 +1,41 @@
+<?php
+//require'dbmanager.php';
+//$dbm = new DBManager();
+//$conn = $dbm->getConnection();
+session_start();
+$dbc=mysqli_connect("localhost","root","","hobby");
+if (isset($_SESSION[id])){
+$id=$_SESSION[id];
+?>
+<html>
+<body>
+<table width="1000px">
+<tr><td>Category</td><td>image</td></tr>
+<?php
+$query="select * from gallery where username='$id'";
+$result=mysqli_query($dbc,$query);
+while ($row=mysqli_fetch_array($result)){
+echo"<tr>";
+echo'<form enctype="multipart/form-data action="institute-gallery-update.php" method="post">';
+?>
+<td><input type="text" value="<?php echo $row[course];?>" name="course"></td>
+<td><input type="text" value="<?php echo $row[duration];?>"  name="duration"></td>
+<td><input type="hidden" value="<?php echo $row[id];?>"  name="hidden"></td>
+<td><textarea cols="20" rows="10" name="description"><?php echo"$row[description]";?></textarea>
+<td><input type="submit" value="update"></td>
+<?php echo"</form>"; ?>
+<td><a href="institute-music-delete.php?x=<?php echo $row[id];?>">Delete</a></td>
+<?php 
+echo"</tr>";
+}
+?>
+</table>
+</body>
+</html>
+<?php
+}
+else{
+$a=md5(1);
+header("location:institute-login.php?x=$a");
+}
+?>

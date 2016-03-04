@@ -1,0 +1,75 @@
+<html>
+<head>
+<style>
+body{background-image:url("button.jpg");
+	margin:0px;}
+input[type="text"]{height:40px;
+ 					width:300px;}
+ input[type="submit"]{height:35px;
+ 					width:100px;
+ 					background-color:#000000;
+ 					color:#ffffff;
+ 					margin-left:;}
+ .container{background-color:;
+ 			width:500px;
+ 			border-radius: 25px;
+ 			opacity:1.5;}
+ .header{position:fixed;
+ 		width:100%;
+ 		z-index:10;
+		background-color:#000000;}
+</style>
+</head>
+<body>
+
+<!--Header-->
+<div class="header"><table width=100%><tr><td width=50px><img src="../images/blank.png"></td><td width=52px><img src="../images/logo2.png"></td><td  width=300px><img src="../images/logo.png"></td><td width=55%></td><td>
+
+<link rel="stylesheet" href="menumaker_files/mbcsmbmcp.css" type="text/css" />
+
+
+
+<div id="mbmcpebul_wrapper">
+  <ul id="mbmcpebul_table" class="mbmcpebul_menulist css_menu">
+  <li><a href="logout.php"><div class="buttonimg buttonimg_34" style="width: 71px; background-image: url('menumaker_files/mb_logout.png')">Logout</div></a></li>
+  </ul>
+</div>
+<!-- Menus will work without this javascript file. It is used only for extra
+     effects, improved usability, compatibility with very old web browsers
+     and support for touch screen devices. -->
+<script type="text/javascript" src="menumaker_files/mbjsmbmcp.js"></script>
+</td></tr></table></div><br><br>
+<center>
+<div class="container">
+<form enctype="multipart/form-data" action="institute-update.php" method="post">
+<table style="width:500px;">
+<tr height="50px">
+<td><label class="s"><b>Institute Name</b></label></td><td><input type="text" name="name"></td></tr>
+<tr height="50px">
+<td><label class="s"><b>Owner Name</b></label></td><td><input type="text" name="owner"></td></tr>
+<tr height="50px">
+<td><label class="s"><b>Office Number</b></label></td><td><input type="text" name="housenumber"></td></tr>
+<tr height="50px">
+<td><label class="s"><b>City</b></label></td><td><input type="text" name="city"></td></tr>
+<tr height="50px">
+<td><label class="s"><b>State</b></label></td><td><input type="text" name="state"></td></tr>
+<tr height="50px">
+<td><label class="s"><b>Phone</b></label></td><td><input type="text" name="phone"></td></tr>
+<tr height="50px">
+<td><label class="s"><b>Email</b></label></td><td><input type="text" name="email"></td></tr>
+<tr height="50px">
+<td><label class="s"><b>Year</b></label></td><td><input type="text" name="year"></td></tr>
+<tr height="50px">
+<td class="a"><label class="s"><b>Services</b></label></td>
+<td><input type="checkbox" name="music" value="music"><b>Music</b>
+<input type="checkbox" name="dance" value="dance"><b>Dance</b>
+<input type="checkbox" name="teaching" value="teaching"><b>Teaching</b>
+<input type="checkbox" name="sports" value="sports"><b>Sports</b></td></tr>
+<tr height="50px">
+<td><label class="s"><b>Profile Pic</b></label></td><td><input type="file" name="screenshot"></td></tr>
+<tr height="50px">
+<td colspan="2"><center><input type="submit"></center></td></tr></table>
+</form></div>
+</center>
+<br>
+</body></html>

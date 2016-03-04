@@ -1,0 +1,314 @@
+body{margin:0px;
+background-color:#696969;
+}
+.header{//position:fixed;
+		width:100%;
+		z-index:9001;
+		background-color:#000000;}
+.cover{position:relative;
+       width:100%;
+       height:88%;
+		//top:77px;
+       //background-color:#ff0000;
+       border-color:#ffffff;
+       border-style:solid;
+
+	   	  background: -webkit-linear-gradient(90deg, #ED4264 10%, #FFEDBC 90%); /* Chrome 10+, Saf5.1+ */
+	   	  background:    -moz-linear-gradient(90deg, #ED4264 10%, #FFEDBC 90%); /* FF3.6+ */
+	   	  background:     -ms-linear-gradient(90deg, #ED4264 10%, #FFEDBC 90%); /* IE10 */
+	   	  background:      -o-linear-gradient(90deg, #ED4264 10%, #FFEDBC 90%); /* Opera 11.10+ */
+	   	  background:         linear-gradient(90deg, #ED4264 10%, #FFEDBC 90%); /* W3C */
+
+       }
+.menu{position:relative;
+			width:100%;
+			height:100%;
+			//background-color:#0000ff;
+			text-align:center;
+			//border:3px solid white;
+			margin:0px;
+			border-collapse:collapse;
+			}
+.dp{position:absolute;
+			//background-color:#0000ff;
+ 			width:250px;
+			z-index:5;
+			height:250px;
+			border-radius:1000px;
+			top:30px;
+			left:545px;
+			border-color:#ffffff;
+			border-style: solid;
+			border-width:15px;}
+.changedp{ position:absolute;
+			background-color:#000000;
+			width:250px;
+			//top:150px;
+			//left:545px;
+			bottom:0px;
+			height:250px;
+			opacity:0.6;
+			z-index:6;
+			border-radius:1000px;
+			display:none;
+			}
+
+#mask {
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  z-index:8999;
+  background-color:#000;
+  display:none;
+}
+#boxes .window {
+  position:absolute;
+  left:0;
+  top:0;
+  width:440px;
+  height:200px;
+  display:none;
+  z-index:9000;
+  padding:20px;
+  border-radius:10px;
+}
+.window1{
+  position:absolute;
+  left:0;
+  top:0;
+  width:440px;
+	//height:650px;
+  display:none;
+  z-index:9000;
+  padding:20px;
+  border-radius:10px;
+}
+.window2{
+  position:absolute;
+  left:0;
+  top:0;
+  width:440px;
+
+  display:none;
+  z-index:9000;
+  padding:20px;
+  border-radius:10px;
+}
+.window3{
+  position:absolute;
+  left:0;
+  top:0;
+  width:600px;
+ height:500px;
+  overflow-x: hidden;
+	overflow: scroll;
+  display:none;
+  z-index:9000;
+  padding:20px;
+  border-radius:10px;
+}
+.window4{
+  position:absolute;
+  left:0;
+  top:0;
+  width:700px;
+
+  display:none;
+  z-index:9000;
+  padding:20px;
+  border-radius:10px;
+}
+.window5{
+  position:absolute;
+  left:0;
+  top:0;
+  width:400px;
+
+  display:none;
+  z-index:9001;
+  padding:20px;
+  border-radius:10px;
+}
+.window6{
+  position:absolute;
+  left:0;
+  top:0;
+  width:400px;
+
+  display:none;
+  z-index:9001;
+  padding:20px;
+  border-radius:10px;
+}
+
+#boxes #dialog {
+  width:400px;
+  height:450px;
+
+  padding:10px;
+
+    background: -webkit-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Chrome 10+, Saf5.1+ */
+    background:    -moz-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* FF3.6+ */
+    background:     -ms-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* IE10 */
+    background:      -o-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Opera 11.10+ */
+    background:         linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* W3C */
+
+}
+#dialog1 {
+  width:400px;
+
+  padding:10px;
+
+    background: -webkit-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Chrome 10+, Saf5.1+ */
+    background:    -moz-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* FF3.6+ */
+    background:     -ms-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* IE10 */
+    background:      -o-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Opera 11.10+ */
+    background:         linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* W3C */
+
+}
+#dialog2 {
+  width:400px;
+overflow: scroll;
+  padding:10px;
+
+    background: -webkit-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Chrome 10+, Saf5.1+ */
+    background:    -moz-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* FF3.6+ */
+    background:     -ms-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* IE10 */
+    background:      -o-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Opera 11.10+ */
+    background:         linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* W3C */
+
+}
+#dialog3 {
+  width:400px;
+ overflow-x: hidden;
+  padding:10px;
+overflow: scroll;
+    background: -webkit-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Chrome 10+, Saf5.1+ */
+    background:    -moz-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* FF3.6+ */
+    background:     -ms-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* IE10 */
+    background:      -o-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Opera 11.10+ */
+    background:         linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* W3C */
+
+}
+#dialog4 {
+  width:700px;
+
+  padding:10px;
+
+    background: -webkit-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Chrome 10+, Saf5.1+ */
+    background:    -moz-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* FF3.6+ */
+    background:     -ms-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* IE10 */
+    background:      -o-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Opera 11.10+ */
+    background:         linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* W3C */
+
+}
+#dialog5 {
+  width:400px;
+
+  padding:10px;
+
+    background: -webkit-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Chrome 10+, Saf5.1+ */
+    background:    -moz-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* FF3.6+ */
+    background:     -ms-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* IE10 */
+    background:      -o-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Opera 11.10+ */
+    background:         linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* W3C */
+
+}
+#dialog6 {
+  width:400px;
+
+  padding:10px;
+
+    background: -webkit-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Chrome 10+, Saf5.1+ */
+    background:    -moz-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* FF3.6+ */
+    background:     -ms-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* IE10 */
+    background:      -o-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Opera 11.10+ */
+    background:         linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* W3C */
+
+}
+input[type="file"]{-webkit-border-radius: 3px;
+					-moz-border-radius: 3px;
+					border-radius: 10px;
+					//width:300px;
+					height:35px;
+					opacity:0.8;
+					color:#000000;
+					}
+input[type="submit"]{-webkit-border-radius: 5px;
+					-moz-border-radius: 5px;
+					border-radius: 20px;
+
+					//width:300px;
+					height:35px;
+					font-size:10pt;
+					color:#ffffff;
+					background-color:#000000;
+					border-color:#000000;
+					}
+.event{position:absolute;
+		background-color:#000000;
+		width:679px;
+		height:282px;
+		top:0px;
+		left:0px;
+		opacity:0.6;
+		display:none;}
+.service{position:absolute;
+		background-color:#000000;
+		width:679px;
+		height:282px;
+		bottom:0px;
+		left:0px;
+		opacity:0.6;
+		display:none;}
+.gallery{position:absolute;
+		background-color:#000000;
+		width:679px;
+		height:282px;
+		top:0px;
+		right:0px;
+		opacity:0.6;
+		display:none;}
+.post{position:absolute;
+		background-color:#000000;
+		width:679px;
+		height:282px;
+		bottom:0px;
+		right:0px;
+		opacity:0.6;
+		display:none;}
+#stat{ width:730px;
+		border-radius:10px;
+
+			}
+#statbutton{width:80px;
+			float:right;}
+#dpp{border-radius:1000px;}
+#events{background-color:#ffffff;
+		width:100%;
+		border-radius:10px;
+		}
+#galleryfeed{
+		//width:450px;
+		//height:700px;
+		//overflow:scroll;
+		border-radius:10px;
+		background-color:#ffff00;
+		padding:10px;
+		display:none;
+
+
+		}
+#newsfeed{
+		width:750px;
+		//height:700px;
+		float:right;
+		border-radius:10px;
+		//overflow:scroll;
+		background-color:#ffffff;
+		padding:10px;
+		margin:50px;
+		margin-right:300px;
+		//display:none;
+}

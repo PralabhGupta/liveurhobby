@@ -1,0 +1,517 @@
+
+<?php
+require'../database/dbmanager.php';
+$dbm = new DBManager();
+$conn = $dbm->getConnection();
+session_start();
+
+if (isset($_SESSION[id])){
+$id=$_SESSION[id];
+$query="select * from $id";
+$result=mysql_query($query);
+$row=mysql_fetch_array($result);
+
+?>
+
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	$('#dp').mouseover(function () {
+			$('.changedp').show();
+	});
+	$('#dp').mouseout(function () {
+				$('.changedp').hide();
+		});
+
+	$('#event').mouseover(function () {
+				//$('.event').show();
+				//$('.event').fadeIn(1000);
+
+			$('.event').fadeTo("slow",0.8);
+
+		});
+	$('#event').mouseout(function () {
+				$('.event').hide();
+	});
+
+	$('#gallery').mouseover(function () {
+					//$('.gallery').show();
+					$('.gallery').fadeTo("slow",0.8);
+			});
+		$('#gallery').mouseout(function () {
+					$('.gallery').hide();
+	});
+
+	$('#service').mouseover(function () {
+	$('.service').fadeTo("slow",0.8);
+					//$('.service').show();
+			});
+		$('#service').mouseout(function () {
+					$('.service').hide();
+	});
+
+	$('#post').mouseover(function () {
+	$('.post').fadeTo("slow",0.8);
+					//$('.post').show();
+			});
+		$('#post').mouseout(function () {
+					$('.post').hide();
+	});
+
+		$('#dp').click(function () {
+		var id = '#dialog';
+		var maskHeight = $(document).height();
+		var maskWidth = $(window).width();
+		$('#mask').css({'width':maskWidth,'height':maskHeight});
+		$('#mask').fadeIn(1000);
+		$('#mask').fadeTo("slow",0.8);
+		var winH = $(window).height();
+		var winW = $(window).width();
+		$(id).css('top',  winH/2-$(id).height()/2);
+		$(id).css('left', winW/2-$(id).width()/2);
+		$(id).fadeIn(2000);
+		});
+	$('#mask').click(function () {
+		$(this).hide();
+		$('.window').hide();
+	});
+	$('.event').click(function () {
+			var id = '#dialog1';
+			var maskHeight = $(document).height();
+			var maskWidth = $(window).width();
+			$('#mask').css({'width':maskWidth,'height':maskHeight});
+			$('#mask').fadeIn(1000);
+			$('#mask').fadeTo("slow",0.8);
+			var winH = $(window).height();
+			var winW = $(window).width();
+			$(id).css('top',  winH/2-$(id).height()/2);
+			$(id).css('left', winW/2-$(id).width()/2);
+			$(id).fadeIn(2000);
+			});
+
+		$('#mask').click(function () {
+			$(this).hide();
+			$('.window1').hide();
+	});
+	$('.gallery').click(function () {
+				var id = '#dialog2';
+				var maskHeight = $(document).height();
+				var maskWidth = $(window).width();
+				$('#mask').css({'width':maskWidth,'height':maskHeight});
+				$('#mask').fadeIn(1000);
+				$('#mask').fadeTo("slow",0.8);
+				var winH = $(window).height();
+				var winW = $(window).width();
+				$(id).css('top',  winH/2-$(id).height()/2);
+				$(id).css('left', winW/2-$(id).width()/2);
+				$(id).fadeIn(2000);
+				});
+
+			$('#mask').click(function () {
+				$(this).hide();
+				$('.window2').hide();
+	});
+	$('.post').click(function () {
+				var id = '#dialog3';
+				var maskHeight = $(document).height();
+				var maskWidth = $(window).width();
+				$('#mask').css({'width':maskWidth,'height':maskHeight});
+				$('#mask').fadeIn(1000);
+				$('#mask').fadeTo("slow",0.8);
+				var winH = $(window).height();
+				var winW = $(window).width();
+				$(id).css('top',  winH/2-$(id).height()/2);
+				$(id).css('left', winW/2-$(id).width()/2);
+				$(id).fadeIn(2000);
+				});
+
+			$('#mask').click(function () {
+				$(this).hide();
+				$('.window3').hide();
+	});
+	$('.service').click(function () {
+				var id = '#dialog4';
+				var maskHeight = $(document).height();
+				var maskWidth = $(window).width();
+				$('#mask').css({'width':maskWidth,'height':maskHeight});
+				$('#mask').fadeIn(1000);
+				$('#mask').fadeTo("slow",0.8);
+				var winH = $(window).height();
+				var winW = $(window).width();
+				$(id).css('top',  winH/2-$(id).height()/2);
+				$(id).css('left', winW/2-$(id).width()/2);
+				$(id).fadeIn(2000);
+				});
+
+			$('#mask').click(function () {
+				$(this).hide();
+				$('.window4').hide();
+	});
+
+
+});
+
+</script>
+<style>
+body{margin:0px;
+
+	  background: -webkit-linear-gradient(90deg, #ED4264 10%, #FFEDBC 90%); /* Chrome 10+, Saf5.1+ */
+	  background:    -moz-linear-gradient(90deg, #ED4264 10%, #FFEDBC 90%); /* FF3.6+ */
+	  background:     -ms-linear-gradient(90deg, #ED4264 10%, #FFEDBC 90%); /* IE10 */
+	  background:      -o-linear-gradient(90deg, #ED4264 10%, #FFEDBC 90%); /* Opera 11.10+ */
+	  background:         linear-gradient(90deg, #ED4264 10%, #FFEDBC 90%); /* W3C */
+
+}
+.header{//position:fixed;
+		width:100%;
+		z-index:9001;
+		background-color:#000000;}
+.cover{position:relative;
+       width:100%;
+       height:88%;
+		//top:77px;
+       //background-color:#ff0000;
+       }
+.menu{position:relative;
+			width:100%;
+			height:100%;
+			//background-color:#0000ff;
+			text-align:center;
+			//border:3px solid white;
+			margin:0px;
+			border-collapse:collapse;
+			}
+.dp{position:absolute;
+			//background-color:#0000ff;
+ 			width:250px;
+			z-index:5;
+			height:250px;
+			border-radius:1000px;
+			top:150px;
+			left:545px;
+			border-color:#ffffff;
+			border-style: solid;
+			border-width:15px;}
+.changedp{ position:absolute;
+			background-color:#000000;
+			width:250px;
+			//top:150px;
+			//left:545px;
+			bottom:0px;
+			height:250px;
+			opacity:0.6;
+			z-index:6;
+			border-radius:1000px;
+			display:none;
+			}
+
+#mask {
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:8999;
+  background-color:#000;
+  display:none;
+}
+#boxes .window {
+  position:absolute;
+  left:0;
+  top:0;
+  width:440px;
+  height:200px;
+  display:none;
+  z-index:9000;
+  padding:20px;
+  border-radius:10px;
+}
+.window1{
+  position:absolute;
+  left:0;
+  top:0;
+  width:440px;
+
+  display:none;
+  z-index:9000;
+  padding:20px;
+  border-radius:10px;
+}
+.window2{
+  position:absolute;
+  left:0;
+  top:0;
+  width:440px;
+
+  display:none;
+  z-index:9000;
+  padding:20px;
+  border-radius:10px;
+}
+.window3{
+  position:absolute;
+  left:0;
+  top:0;
+  width:440px;
+
+  display:none;
+  z-index:9000;
+  padding:20px;
+  border-radius:10px;
+}
+.window4{
+  position:absolute;
+  left:0;
+  top:0;
+  width:440px;
+
+  display:none;
+  z-index:9000;
+  padding:20px;
+  border-radius:10px;
+}
+
+#boxes #dialog {
+  width:400px;
+  height:450px;
+  padding:10px;
+
+    background: -webkit-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Chrome 10+, Saf5.1+ */
+    background:    -moz-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* FF3.6+ */
+    background:     -ms-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* IE10 */
+    background:      -o-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Opera 11.10+ */
+    background:         linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* W3C */
+
+}
+#dialog1 {
+  width:400px;
+
+  padding:10px;
+
+    background: -webkit-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Chrome 10+, Saf5.1+ */
+    background:    -moz-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* FF3.6+ */
+    background:     -ms-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* IE10 */
+    background:      -o-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Opera 11.10+ */
+    background:         linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* W3C */
+
+}
+#dialog2 {
+  width:400px;
+
+  padding:10px;
+
+    background: -webkit-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Chrome 10+, Saf5.1+ */
+    background:    -moz-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* FF3.6+ */
+    background:     -ms-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* IE10 */
+    background:      -o-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Opera 11.10+ */
+    background:         linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* W3C */
+
+}
+#dialog3 {
+  width:400px;
+
+  padding:10px;
+
+    background: -webkit-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Chrome 10+, Saf5.1+ */
+    background:    -moz-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* FF3.6+ */
+    background:     -ms-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* IE10 */
+    background:      -o-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Opera 11.10+ */
+    background:         linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* W3C */
+
+}
+#dialog4 {
+  width:400px;
+
+  padding:10px;
+
+    background: -webkit-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Chrome 10+, Saf5.1+ */
+    background:    -moz-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* FF3.6+ */
+    background:     -ms-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* IE10 */
+    background:      -o-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Opera 11.10+ */
+    background:         linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* W3C */
+
+}
+input[type="file"]{-webkit-border-radius: 3px;
+					-moz-border-radius: 3px;
+					border-radius: 10px;
+					//width:300px;
+					height:35px;
+					opacity:0.8;
+					color:#000000;
+					}
+input[type="submit"]{-webkit-border-radius: 5px;
+					-moz-border-radius: 5px;
+					border-radius: 20px;
+
+					//width:300px;
+					height:35px;
+					font-size:10pt;
+					color:#ffffff;
+					background-color:#000000;
+					border-color:#000000;
+					}
+.event{position:absolute;
+		background-color:#000000;
+		width:679px;
+		height:282px;
+		top:0px;
+		left:0px;
+		opacity:0.6;
+		display:none;}
+.service{position:absolute;
+		background-color:#000000;
+		width:679px;
+		height:282px;
+		bottom:0px;
+		left:0px;
+		opacity:0.6;
+		display:none;}
+.gallery{position:absolute;
+		background-color:#000000;
+		width:679px;
+		height:282px;
+		top:0px;
+		right:0px;
+		opacity:0.6;
+		display:none;}
+.post{position:absolute;
+		background-color:#000000;
+		width:679px;
+		height:282px;
+		bottom:0px;
+		right:0px;
+		opacity:0.6;
+		display:none;}
+#stat{ width:380px;
+		border-radius:10px;
+
+			}
+#statbutton{width:80px;
+			float:right;}
+#dpp{border-radius:1000px;}
+</style>
+
+</head>
+<body>
+<!--Header-->
+<div class="header"><table width=100%><tr><td width=50px><img src="../images/blank.png"></td><td width=52px><img src="../images/logo2.png"></td><td  width=300px><img src="../images/logo.png"></td><td width=40%></td><td><?php echo"<font color=white size=4>Welcome.' '.$row[name]</font>";?></td><td>
+<link rel="stylesheet" href="menumaker_files/mbcsmbmcp.css" type="text/css" />
+<div id="mbmcpebul_wrapper">
+  <ul id="mbmcpebul_table" class="mbmcpebul_menulist css_menu">
+  <li><a href="institute-logout.php"><div class="buttonimg buttonimg_34" style="width: 71px; background-image: url('menumaker_files/mb_logout.png')">Logout</div></a></li>
+  </ul>
+</div>
+<!-- Menus will work without this javascript file. It is used only for extra
+     effects, improved usability, compatibility with very old web browsers
+     and support for touch screen devices. -->
+<script type="text/javascript" src="menumaker_files/mbjsmbmcp.js"></script>
+</td></tr></table></div>
+
+<!--menu-->
+<div class="cover"><table class="menu">
+<tr>
+<td style="border-right:15px solid white;border-bottom:15px solid white;" id="event">
+<a href="#0"><div class="event"><br><Br><br><Br><font color="#ffffff" size=6><b>Click To See All Your Events</B></font></div></a>
+<img src="../images/work3.png" width=400px></td>
+<td style="border-left:15px solid white;border-bottom:15px solid white;" id="gallery">
+<a href="#0"><div class="gallery"><br><Br><br><Br><font color="#ffffff" size=6><b>Click To See Your Gallery</B></font></div></a>
+<img src="../images/work2.png" width=400px ></td>
+</tr>
+<tr>
+<td style="border-right:15px solid white;border-top:15px solid white;" id="service">
+<a href="#0"><div class="service"><br><Br><br><Br><font color="#ffffff" size=6><b>Click To Check Out Services</B></font></div></a>
+<img src="../images/work3.png" width=400px></td>
+<td style="border-left:15px solid white;border-top:15px solid white;" id="post" >
+<a href="#0"><div class="post"><br><Br><br><Br><font color="#ffffff" size=6><b>Click To Post An Update</B></font></div></a>
+<img src="../images/work2.png" width=400px></td>
+</tr>
+</table>
+<!--profile pic-->
+<?php $query1="select * from picture where username='$id'";
+$result1=mysql_query($query1);
+$row1=mysql_fetch_array($result1);
+?>
+
+<div class="dp" id="dp"><?php echo"<img src='$row[screenshot]' width='250px' height=250px; id='dpp'>";?><div class="changedp"><center><br><br><br><br><br><br><br><br><a href="#0" style="opacity:1;"><img src="../images/edit_profile.png" width=90px height=90px></a></center></div></div>
+</div>
+<!--pop up-->
+<div id="boxes">
+<!--dp-->
+<div style="top: 199.5px; left: 551.5px; display: none;" id="dialog" class="window">
+<?php echo"<img src='$row[screenshot]' width='400px' height=400px;>";?><br><br>
+<form action="institute-updte-dppic.php" action="POST" enctype="multipart/form-data">
+<table><tr><td>Upload Picture</td><td><input type="file" name="screenshot"></td><td><input type="submit" value="Save"></td></tr></table>
+</form>
+</div>
+<!--events-->
+<div style="top: 199.5px; left: 551.5px; display: none;text-align:center;" id="dialog1" class="window1">
+<h1>Events</h1>
+<br>
+
+</div>
+<!--gallery-->
+<div style="top: 199.5px; left: 551.5px; display: none;" id="dialog2" class="window2">
+<img src="../images/man3.jpg"width=400px; height=400px;><br><br>
+<form action="institute-updte-dppic.php" action="POST" enctype="multipart/form-data">
+<table><tr><td>Upload Pi</td><td><input type="file" name="screenshot"></td><td><input type="submit" value="Save"></td></tr></table>
+</form>
+</div>
+<!--post-->
+<div style="top: 199.5px; left: 551.5px; display: none;" id="dialog3" class="window3">
+<center><h1>News Feed</h1></center>
+<form action="institute-status.php" method="post">
+<table><tr><td><textarea name="text" id="stat" placeholder="Update about your institute"></textarea></td></tr>
+<tr><td><input type="submit" id="statbutton" value="Post"></td></tr></table>
+</form>
+<?php
+$query4="select * from post where username='$id'";
+$result4=mysql_query($query4);
+$i=0;
+while($row4=mysql_fetch_array($result4)){
+echo"$i";
+echo"$row4[data]";
+echo"<br>";
+$path="like.php?y=".$row4[id];
+echo"<a href=$path>likes</a>";
+echo"$row4[likes];";
+$i=$i+1;
+echo'<form action="institute-comment.php" method="post">';
+echo"Comment";
+echo'<input type="text" name="comment">';
+$hidden=$row4[id];
+$hide="hidden";
+echo"<input type=$hide name=$hide value=$hidden>";
+echo'<input type="submit" value="submit">';
+echo"</form>";
+echo"<br>Your Comments";
+$query5="select * from comment where id='$row4[id]'";
+echo"<br>";
+$j=0;
+$result5=mysql_query($query5);
+while($row5=mysql_fetch_array($result5)){
+echo"$j";
+echo"$row5[comments]";
+echo"<br>";
+$j=$j+1;}
+}?>
+</div>
+<!--service-->
+<div style="top: 199.5px; left: 551.5px; display: none;" id="dialog4" class="window4">
+<img src="../images/man3.jpg"width=400px; height=400px;><br><br>
+<form action="institute-updte-dppic.php" action="POST" enctype="multipart/form-data">
+<table><tr><td>Upload Pi</td><td><input type="file" name="screenshot"></td><td><input type="submit" value="Save"></td></tr></table>
+</form>
+</div>
+<!-- Mask to cover the whole screen -->
+<div style="width: 1478px; height: 602px; display: none; opacity: 0.8;" id="mask"></div>
+</div>
+</body>
+</html>
+<?php
+}
+else
+{$a=md5(1);
+header("location:../institute-login.php?x=$a");
+}
+?>

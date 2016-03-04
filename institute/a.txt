@@ -1,0 +1,26 @@
+$('#poststatus').click(function (e){
+	e.preventDefault();
+	var str=$("#textstatus").val();
+					        //get the username
+if (str=="")
+	{
+		alert("Enter Data");
+		return;
+	}
+
+		else{
+		$.post("institute-status.php", { x: str },
+					            function(result){
+					            $("#textstatus").append(" ");
+					                //if the result is 1
+					                if(result == 1){
+
+
+											}
+
+									   		else
+									   		{
+					                }
+					        });}
+
+			});
